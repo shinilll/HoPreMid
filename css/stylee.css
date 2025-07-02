@@ -1,0 +1,227 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+/* header section:title */
+.header {
+  background: #b09464;
+  padding: 10px;
+  /* Adjustments to match reference image after all elements are inline */
+  text-align: left; /* Aligns inline-block elements (title, links, search) */
+}
+.title-container {
+  display: inline-block; /* Changed to inline-block for better control with horizontal elements */
+  vertical-align: middle; /* Align vertically with other inline elements */
+}
+.title-container > h1 {
+  display: inline;
+  font-size: 50px;
+  margin-block: 0px;
+  font-family: 'Anton', sans-serif; /* Apply specific font */
+}
+.title-container > h1:first-child {
+  color: #ffe999;
+}
+.title-container > h1:nth-child(2) {
+  color: #ffffff;
+}
+/* header section: links */
+.links {
+  display: inline;
+  font-size: 30px;
+  margin-left: 10em;
+}
+.links > ul {
+  list-style: none;
+  display: inline;
+  margin-block: 0px;
+}
+
+.links > ul > li {
+  text-align: center;
+  display: inline;
+  margin-block: 0px;
+  padding: 8px 15px; /* Add padding to each list item for spacing */
+  font-size: 16px; /* Actual font size for navigation items */
+  font-family: 'Montserrat', sans-serif; /* Apply specific font */
+  color: white; /* Default link color */
+}
+
+.links > ul > li:first-child {
+  background: #ffe999;
+  padding-top: 50px;
+  padding-bottom: 25px;
+  color: #B09464; /* Text color for active item */
+
+}
+
+/* header section: search */
+.search-icon-container {
+  display: inline-block; /* Changed to inline-block */
+}
+.search-icon-container > img {
+  width: 50px; /* Original width kept */
+  display: inline; /* This is redundant for img, but keeping for consistency */
+  margin-left: 10em; /* Original large left margin kept */
+}
+/* New CSS for the rest of the page */
+/* Banner Section */
+.banner-section {
+  position: relative; /* Allows absolute positioning of children */
+  width: 100%;
+  height: 480px; /* Adjusting height for the new image arrangement */
+  overflow: hidden; /* Ensures content stays within bounds */
+  text-align: center; /* Centers its contents horizontally */
+  /* Reverted banner background to previous state for consistency until a clear solution for bg.jpg is found */
+  background-color: transparent; /* No specific background color initially */
+}
+/* Make the banner-bg img appear as background without cropping key parts */
+.banner-section .banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Reverted to cover, as that's what was working without specific image details */
+    object-fit: cover; 
+    z-index: 1; /* Puts it behind the main text image */
+}
+.banner-main-text-image {
+  position: absolute; /* Position it absolutely within the banner-section */
+  top: 50%; /* Start from the middle vertically */
+  left: 50%; /* Start from the middle horizontally */
+  transform: translate(-50%, -50%); /* Shift it back by half its own width/height to truly center */
+  width: 60%; /* Adjust size relative to banner. Your image seems wide. */
+  max-width: 600px; /* Example max width based on your image crop */
+  height: auto;
+  z-index: 2; /* Ensure it's above the background */
+}
+
+/* Main Content Area */
+.main-content-layout {
+  text-align: center; /* To center the two columns if they are inline-block */
+  padding: 60px 40px; /* Padding for the entire section */
+  font-family: 'Inter', sans-serif;
+  background-color: #EFD2B5; 
+ 
+}
+.content-blocks-column {
+  display: inline-block; /* Treat as a column */
+  vertical-align: top; /* Align to the top of the main-content-layout */
+  width: 55%; /* Adjust width to make space for trends */
+  text-align: left; /* Align content inside this column to the left */
+  margin-right: 30px; /* Space between columns */
+  background-color: transparent; /* Ensure no default background */
+  padding: 20px 0; /* Add top/bottom padding to give it height, but no side padding */
+}
+.content-block {
+  display: flow-root; /* To contain floated elements later. Or use clearfix pattern */
+  overflow: hidden; /* Clear floats */
+  margin-bottom: 30px; /* Space between content blocks */
+  background-color: transparent; /* REMOVED white background */
+  padding: 0px; /* REMOVED padding directly on the block */
+  border-radius: 0px; /* REMOVED border-radius */
+  box-shadow: none; /* REMOVED box-shadow */
+}
+.content-block img {
+  float: left; /* Float image to the left */
+  width: 120px;
+  height: 120px;
+  margin-right: 20px; /* Space between image and text */
+  object-fit: contain;
+}
+.content-block .text-content {
+  overflow: hidden; /* Contains the text next to the floated image */
+}
+.content-block .text-content h3 {
+  font-size: 24px;
+  color: #5D5754;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.content-block .text-content p {
+  font-size: 16px;
+  color: #777;
+  line-height: 1.6; /* Ensure consistent line height */
+}
+.trends-column {
+  display: inline-block; /* Treat as a column */
+  vertical-align: top;
+  width: 35%; /* Adjust width */
+  padding: 0; /* No explicit padding on the column itself to start */
+  border-radius: 0; /* No explicit border radius on the column itself to start */
+  text-align: center; /* Center content within trends column */
+
+  /* NEW: Background color for the entire trends list area */
+  background-color: #FFF8DC; /* As requested */
+  /* Adding padding for the content inside this column (top, right, bottom, left) */
+  padding: 20px 15px; /* Adjust as needed for visual spacing */
+  border-radius: 8px; /* Assuming this column also gets rounded corners as it's part of the same visual container */
+}
+.trends-column h4 {
+  font-size: 22px;
+  font-family: 'Anton', sans-serif;
+  color: #FFFFFF; /* White text for contrast */
+  text-align: center;
+  padding: 8px 15px; /* Adjusted padding within the bar */
+  border-radius: 5px; /* Slightly rounded corners */
+  margin: -20px auto 20px auto; /* NEW: Negative top margin to pull it slightly outside, and center it */
+  width: 100px; /* Set a fixed width to match reference's compact bar */
+  display: block; /* Make it a block element to take width and margin */
+
+  /* NEW: Rectangle background wrap for "TRENDS" title */
+  background-color: #B09464; /* As requested */
+}
+
+.trend-item {
+  margin-bottom: 15px; /* Reduced vertical spacing between trend items */
+  background-color: transparent; /* Ensure no background */
+  padding: 0; /* Ensures no extra padding */
+}
+
+.trend-item h5 {
+  font-size: 18px; /* Standard size */
+  color: #5D5754;
+  margin-block: 0; /* Remove default margins to control spacing with p */
+  line-height: 1.2; /* Tighter line height for text */
+}
+
+.trend-item p {
+  font-size: 14px;
+  color: #999;
+  margin-top: 5px; /* Small margin above URL */
+}
+
+/* Quote Section */
+.quote-section {
+  text-align: center; /* To center inline-block children */
+  padding: 60px 40px;
+  background-color: #FFF8DC; /* Color from the reference image */
+  color: #5D5754;
+}
+.just-breathe-logo {
+  display: inline-block; /* Layout logo and text side-by-side */
+  vertical-align: middle;
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-right: 40px; /* Space between logo and quote */
+}
+.health-quote {
+  display: inline-block; /* Layout logo and text side-by-side */
+  vertical-align: middle;
+  font-family: 'Dancing Script', cursive; /* Elegant cursive font */
+  font-size: 36px;
+  font-style: italic;
+  max-width: 600px; /* Control line length for quote */
+  line-height: 1.3;
+  margin: 0; /* Remove default paragraph margins */
+}
+/* Footer */
+.footer {
+  background-color: #B09464;
+  color: #FFF;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+}
